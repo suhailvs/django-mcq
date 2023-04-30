@@ -22,3 +22,13 @@ Add the following to your projects `urls.py` file.
         ...
         path('quiz/', include('quiz.urls')),
     ]
+
+
+ToDo
+----
+
+StudentList
+StudentDetail
+StudentInterestsView
+
+these need Student model.

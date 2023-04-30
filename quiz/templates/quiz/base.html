@@ -1,0 +1,54 @@
+{% load static %}<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}Django School{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'quiz/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'quiz/app.css' %}">
+    {% block css %}
+    {% endblock %}
+  </head>
+  <body>
+    <div class="container my-4">
+      <div class="row justify-content-center">
+        <div class="col-md-10 col-sm-12">
+          <div class="row">
+            <div class="col-6">
+              <h1 class="logo">
+                <a href="{% url 'quiz:quiz_list' %}">
+                  Django School
+                </a>
+              </h1>
+            </div>
+            <div class="col-6 text-right">
+              {% if user.is_authenticated %}
+                <p class="pt-3">
+                  <a href="{% url 'quiz:quiz_list' %}">Quiz list</a> | 
+                  <a href="{% url 'quiz:student_detail' student=user.id %}">{{ user.username }}</a> - {{user.student.score}}
+                </p>
+              {% endif %}
+            </div>
+          </div>
+          <div class="card mb-3">
+            <div class="card-body">
+              {% for message in messages %}
+                <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
+                  {{ message }}
+                </div>
+              {% endfor %}
+
+              {% block content %}
+              {% endblock %}
+            </div>
+          </div>
+          <footer>
+            <a href="https://github.com/suhailvs/django-quiz/">django-quiz app</a>
+          </footer>
+        </div>
+      </div>
+    </div>
+    {% block js %}
+    {% endblock %}
+  </body>
+</html>
