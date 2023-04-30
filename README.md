@@ -24,11 +24,15 @@ Add the following to your projects `urls.py` file.
     ]
 
 
-ToDo
-----
+Create a template `quiz_base.html` file in **templates** folder:
 
-StudentList
-StudentDetail
-StudentInterestsView
-
-these need Student model.
+    <!doctype html>
+    <html lang="en">
+        <head>
+            {% block quiz_css %}{% endblock %}
+        </head>
+        <body>
+            {% block quiz_body %}{% endblock %}
+            {% block quiz_js %}{% endblock %}
+        </body>
+    </html>

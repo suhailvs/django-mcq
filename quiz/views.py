@@ -18,7 +18,11 @@ from .models import Quiz, Student, TakenQuiz, Question
 
 User = get_user_model()
 
-
+def get_or_create_student(user):
+    try:
+        return user.student
+    except:
+        return Student.objects.create(user=user)
 
 @method_decorator([login_required], name='dispatch')
 class StudentInterestsView(UpdateView):
@@ -28,7 +32,7 @@ class StudentInterestsView(UpdateView):
     success_url = reverse_lazy('quiz:quiz_list')
 
     def get_object(self):
-        return self.request.user.student
+        return get_or_create_student(self.request.user)
 
     def form_valid(self, form):
         messages.success(self.request, 'Interests updated with success!')
@@ -43,7 +47,7 @@ class QuizListView(ListView):
     template_name = 'quiz/quiz_list.html'
 
     def get_queryset(self):
-        student = self.request.user.student
+        student = get_or_create_student(self.request.user)
         # student_interests = student.interests.values_list('pk', flat=True)
         taken_quizzes = student.quizzes.values_list('pk', flat=True)
         queryset = Quiz.objects.exclude(pk__in=taken_quizzes) \
@@ -53,7 +57,8 @@ class QuizListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['student_subjects'] = self.request.user.student.interests.values_list('pk', flat=True)
+        student = get_or_create_student(self.request.user)
+        context['student_subjects'] = student.interests.values_list('pk', flat=True)
         return context
 
 @method_decorator([login_required], name='dispatch')
@@ -62,7 +67,7 @@ class QuizResultsView(View):
 
     def get(self, request, *args, **kwargs):        
         quiz = Quiz.objects.get(id = kwargs['pk'])
-        taken_quiz = TakenQuiz.objects.filter(student = request.user.student, quiz = quiz)
+        taken_quiz = TakenQuiz.objects.filter(student = get_or_create_student(self.request.user), quiz = quiz)
         if not taken_quiz:
             """
             Don't show the result if the user didn't attempted the quiz
@@ -82,7 +87,8 @@ class TakenQuizListView(ListView):
     template_name = 'quiz/taken_quiz_list.html'
 
     def get_queryset(self):
-        queryset = self.request.user.student.taken_quizzes \
+        student = get_or_create_student(self.request.user)
+        queryset = student.taken_quizzes \
             .select_related('quiz', 'quiz__subject') \
             .order_by('quiz__name')
         return queryset
@@ -91,7 +97,7 @@ class TakenQuizListView(ListView):
 @login_required
 def take_quiz(request, pk):
     quiz = get_object_or_404(Quiz, pk=pk)
-    student = request.user.student
+    student = get_or_create_student(request.user)
 
     if student.quizzes.filter(pk=pk).exists():
         return render(request, 'students/taken_quiz.html')
