@@ -14,7 +14,7 @@ from django.views.generic import ListView, UpdateView
 from django.views import View
 
 from .forms import StudentInterestsForm, TakeQuizForm
-from .models import Quiz, Student, TakenQuiz, Question
+from .models import Quiz, Student, TakenQuiz, Question, Subject, Answer
 
 User = get_user_model()
 
@@ -79,6 +79,30 @@ class QuizResultsView(View):
         return render(request, self.template_name, {'questions':questions, 
             'quiz':quiz, 'percentage': taken_quiz[0].percentage})
 
+from django.http import JsonResponse
+
+@method_decorator([login_required], name='dispatch')
+class CreateQuizView(View):
+    def create_quiz(self, quiz):
+        subject, _ = Subject.objects.get_or_create(name=quiz['subject'])
+        quiz_item= Quiz.objects.create(name=quiz['quiz'],subject=subject)
+        for question in quiz['questions']:
+            question_item = Question.objects.create(quiz=quiz_item,text=question['question'])
+            for answer in question['answers']:
+                is_correct = True if answer['is_correct'] == 'true' else False
+                Answer.objects.create(question = question_item, text = answer['answer'],is_correct=is_correct)
+    def post(self, request, *args, **kwargs): 
+        import json
+        try:
+            quizzes = json.loads(request.POST['txt_quizzes_json'])
+            with transaction.atomic():
+                for quiz in quizzes:
+                    self.create_quiz(quiz)
+        except Exception as e:
+            print(e)
+            return JsonResponse({'resp':'error'})
+        
+        return JsonResponse({'resp':'success'})  
 
 @method_decorator([login_required], name='dispatch')
 class TakenQuizListView(ListView):

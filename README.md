@@ -47,3 +47,12 @@ Load sample quizzes:
     python manage.py loaddata sample_quizzes.json
 
 Now login a user and navigate to <http://127.0.0.1:8000/quiz/>
+
+
+Packaging pypi
+--------------
+
+* delete files in `dist` folder
+* increment the version number in your `setup.py` file
+* `$ python3 -m build`
+* `twine upload dist/*`
