@@ -1,16 +1,19 @@
 from setuptools import find_packages, setup
-from io import open
 
-readme = open('README.md', encoding='utf-8').read()
+
+readme = open('README.md', encoding='utf-8')
+long_description = readme.read()
+
 
 setup(
     name='django-mcq',
-    version='0.1',
+    version='0.2',
     packages=find_packages(),
     include_package_data=True,
     license='MIT License',
     description='A configurable quiz app for Django.',
-    long_description=readme,
+    long_description=long_description,
+    long_description_content_type='text/markdown',
     url='https://github.com/suhailvs/django-mcq',
     author='Suhail VS',
     author_email='suhailvs@gmail.com',

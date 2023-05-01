@@ -142,7 +142,7 @@ def take_quiz(request, pk):
     })
 
 
-# @method_decorator([login_required], name='dispatch')
+@method_decorator([login_required], name='dispatch')
 class StudentList(ListView):
     # model = get_user_model()
     paginate_by = 36
@@ -161,7 +161,7 @@ class StudentList(ListView):
             queryset = queryset.filter(user__username__icontains = query)
         return queryset
 
-# @method_decorator([login_required], name='dispatch')
+@method_decorator([login_required], name='dispatch')
 class StudentDetail(View):
     """Show Details of a Student"""
     def get(self, request, **kwargs):

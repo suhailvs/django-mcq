@@ -15,6 +15,7 @@ Add `'quiz'` to your `INSTALLED_APPS` setting.
         ...
     )
 
+
 Add the following to your projects `urls.py` file.
 
 
@@ -36,3 +37,13 @@ Create a template `quiz_base.html` file in **templates** folder:
             {% block quiz_js %}{% endblock %}
         </body>
     </html>
+
+Migrate database:
+
+    python manage.py migrate
+
+Load sample quizzes:
+
+    python manage.py loaddata sample_quizzes.json
+
+Now login a user and navigate to <http://127.0.0.1:8000/quiz/>
