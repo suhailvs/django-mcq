@@ -1,11 +1,11 @@
-# django-quiz
+# Django Multiple Choice Question
 
 
 Installation
 ------------
-Install django-quiz
+Install django-mcq
 
-Run `pip install django-quiz`.
+Run `pip install django-mcq`.
 
 Add `'quiz'` to your `INSTALLED_APPS` setting.
 

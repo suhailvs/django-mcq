@@ -4,14 +4,14 @@ from io import open
 readme = open('README.md', encoding='utf-8').read()
 
 setup(
-    name='django-quiz',
+    name='django-mcq',
     version='0.1',
     packages=find_packages(),
     include_package_data=True,
     license='MIT License',
     description='A configurable quiz app for Django.',
     long_description=readme,
-    url='https://github.com/suhailvs/django-quiz',
+    url='https://github.com/suhailvs/django-mcq',
     author='Suhail VS',
     author_email='suhailvs@gmail.com',
     zip_safe=False,
