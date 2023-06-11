@@ -1,7 +1,7 @@
 {% extends 'quiz/base.html' %}
 
 {# load crispy_forms_tags #}
-
+{% load static %}
 
 {% block content %}
 {% include 'quiz/_header.html' with active='new' %}
@@ -12,6 +12,7 @@
   
   <h2 class="mb-3">{{ quiz.name }}</h2>
   <p class="lead">{{ question.text }}</p>
+  {% if question.img %}<img src="{% static 'quiz_img/'|add:question.img %}" class="img-thumbnail" style="max-width: 100%">{% endif %}
   <form method="post" novalidate>
     {% csrf_token %}
     {{ form }}

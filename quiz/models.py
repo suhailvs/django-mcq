@@ -1,7 +1,8 @@
 from django.db import models
-from django.utils.html import escape, mark_safe
+from django.utils.html import escape, mark_safe, format_html
 # Create your models here.
 from django.conf import settings
+from django.templatetags.static import static
 
 class Subject(models.Model):
     name = models.CharField(max_length=30)
@@ -29,7 +30,8 @@ class Quiz(models.Model):
 class Question(models.Model):
     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE, related_name='questions')
     text = models.TextField('Question')
-
+    img = models.CharField(max_length=250, blank=True)
+    img_explanation = models.CharField(max_length=250, blank=True)
     def __str__(self):
         return self.text
 
@@ -37,10 +39,17 @@ class Question(models.Model):
 class Answer(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE, related_name='answers')
     text = models.CharField('Answer', max_length=255)
+    img = models.CharField(max_length=250, blank=True)
     is_correct = models.BooleanField('Correct answer', default=False)
 
     def __str__(self):
-        return self.text
+        image_url = ''
+        str_html = f'<span style="cursor:pointer">{self.text}'
+        if self.img:
+            image_url = static(f'quiz_img/{self.img}')
+            str_html += '<br><img src="{}" class="img-thumbnail" style="max-width: 100%"><hr>'
+        str_html += '</span>'
+        return format_html(str_html, image_url)
 
 
 class Student(models.Model):
