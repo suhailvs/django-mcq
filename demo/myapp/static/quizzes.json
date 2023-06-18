@@ -1,0 +1,54 @@
+[{
+    "quiz": "Physics Plus One", "subject": "Physics", "questions": [
+        {
+            "question":"How many atoms in the cube?",
+            "img":"plus2_chap1/1_e1_quest.jpg",
+            "img_explanation":"plus2_chap1/1_e1_sol.jpg",
+            "answers":[
+                {"answer":"", "is_correct": "true", "img":"plus2_chap1/1_e1_ans1.jpg"}
+            ]
+        },
+        {
+            "question":"Analysis of a Power Law",
+            "img":"plus2_chap1/1_e3_quest.jpg",
+            "img_explanation":"plus2_chap1/1_e3_sol.jpg",
+            "answers":[
+                {"answer":"", "is_correct": "true", "img":"plus2_chap1/1_e3_ans1.jpg"}
+            ]
+        },
+        {
+            "question":"The Density of a Cube",
+            "img":"plus2_chap1/1_e4_quest.jpg",
+            "img_explanation":"plus2_chap1/1_e4_sol.jpg",
+            "answers":[
+                {"answer":"", "is_correct": "true", "img":"plus2_chap1/1_e4_ans1.jpg"}
+            ]
+        }
+    ]
+},{
+    "quiz": "Physics: Motion in One Dimension", "subject": "Physics", "questions": [
+        {
+            "question":"Calculating the Variables of Motion",
+            "img":"plus2_chap2/2_e1_quest.jpg",
+            "img_explanation":"plus2_chap2/2_e1_sol.jpg",
+            "answers":[
+                {"answer":"displacement: -97m, average velocity: -2.7 m/s, average speed: 2.0 m/s", "is_correct": "false", "img":""},
+                {"answer":"displacement: -83m, average velocity: -1.7 m/s, average speed: 2.5 m/s", "is_correct": "true", "img":""},
+                {"answer":"displacement: -90m, average velocity: -2.4 m/s, average speed: 2.2 m/s", "is_correct": "false", "img":""},
+                {"answer":"displacement: -88m, average velocity: -2.2 m/s, average speed: 2.3 m/s", "is_correct": "false", "img":""}
+                
+            ]
+        },
+        {
+            "question":"Not a Bad Throw for a Rookie",
+            "img":"plus2_chap2/2_e13_quest.jpg",
+            "img_explanation":"plus2_chap2/2_e13_sol.jpg",
+            "answers":[
+                {"answer":"(a) t = 2.04 s, (b) yB = 20.4 m, (c) t = 4.08s, (d) v = -20.0 m/s, (e) v = -29.0 m/s, yD = -22.5 m", "is_correct": "true", "img":""},
+                {"answer":"(a) t = 2.22 s, (b) yB = 22.4 m, (c) t = 4.18s, (d) v = -28.0 m/s, (e) v = -30.0 m/s, yD = -24.5 m", "is_correct": "false", "img":""},
+                {"answer":"(a) t = 2.12 s, (b) yB = 21.4 m, (c) t = 4.13s, (d) v = -24.0 m/s, (e) v = -29.5 m/s, yD = -23.5 m", "is_correct": "false", "img":""}               
+                
+            ]
+        }
+    ]
+}]

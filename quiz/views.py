@@ -87,10 +87,11 @@ class CreateQuizView(View):
         subject, _ = Subject.objects.get_or_create(name=quiz['subject'])
         quiz_item= Quiz.objects.create(name=quiz['quiz'],subject=subject)
         for question in quiz['questions']:
-            question_item = Question.objects.create(quiz=quiz_item,text=question['question'])
+            question_item = Question.objects.create(quiz=quiz_item,text=question['question'], 
+                img = question['img'],img_explanation = question['img_explanation'])
             for answer in question['answers']:
                 is_correct = True if answer['is_correct'] == 'true' else False
-                Answer.objects.create(question = question_item, text = answer['answer'],is_correct=is_correct)
+                Answer.objects.create(question = question_item, text = answer['answer'],is_correct=is_correct, img = answer['img'])
     def post(self, request, *args, **kwargs): 
         import json
         try:
