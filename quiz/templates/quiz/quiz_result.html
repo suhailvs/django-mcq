@@ -21,6 +21,8 @@
   <div class="card-body">
     <h5 class="card-title">{{forloop.counter}}. {{question.text}}</h5>
     {% if question.img %}<img src="{% static 'quiz_img/'|add:question.img %}" class="img-thumbnail" style="max-width: 100%">{% endif %}
+    
+    {% if question.img_explanation %}<img src="{% static 'quiz_img/'|add:question.img_explanation %}" class="img-thumbnail" style="max-width: 100%">{% endif %}
     <table class="table table-bordered table-sm">
       <thead><tr><th>Yours</th><th>Correct</th><th></th></tr></thead>
       <tbody>
