@@ -51,4 +51,73 @@
             ]
         }
     ]
+},{
+    "quiz": "Physics: Energy Sources", "subject": "Physics", "questions": [
+        {
+            "question":"An advantage of using solar power is","img":"","img_explanation":"",
+            "answers":[
+                {"answer":"no greenhouse gases", "is_correct": "true", "img":""},
+                {"answer":"lots of pollution", "is_correct": "false", "img":""},
+                {"answer":"it is available even on cloudy days", "is_correct": "false", "img":""}
+            ]
+        },{
+            "question":"An advantage of using hydroelectric power is","img":"","img_explanation":"",
+            "answers":[
+                {"answer":"reservoirs can be used for irrigation of crops", "is_correct": "true", "img":""},
+                {"answer":"sometimes surrounding area get flooded", "is_correct": "false", "img":""},
+                {"answer":"the normal flow of the water is diverted", "is_correct": "false", "img":""}
+            ]
+        },{
+            "question":"Most utility companies in the U.S. dont use hydroelectric power because","img":"","img_explanation":"",
+            "answers":[
+                {"answer":"the plants are expensive to build and use expensive machinery", "is_correct": "true", "img":""},
+                {"answer":"reservoirs can be used to irrigate crops and they dont want to help farmers", "is_correct": "false", "img":""},
+                {"answer":"it cause a lot of greenhouse gases", "is_correct": "false", "img":""}
+            ]
+        },{
+            "question":"Which energy source would be best for a city that has limited space and want to be effecient?","img":"","img_explanation":"",
+            "answers":[
+                {"answer":"solar-costly to build and 6%-30% efficient", "is_correct": "false", "img":""},
+                {"answer":"Wind-turbines need lots of free space 40%-60% efficient", "is_correct": "false", "img":""},
+                {"answer":"Natural gas-can be used in small areas 50%-60% efficient", "is_correct": "true", "img":""}
+            ]
+        },{
+            "question":"What is a major disadvantage of nuclear power?","img":"","img_explanation":"",
+            "answers":[
+                {"answer":"it produces small amounts of power", "is_correct": "false", "img":""},
+                {"answer":"the by-product(waste) is nuclear radiation", "is_correct": "true", "img":""},
+                {"answer":"power plants are inexpensive to build", "is_correct": "false", "img":""}
+            ]
+        },{
+            "question":"If a community were choosing between solar and wind; what advantage would make wind the best choice?","img":"","img_explanation":"",
+            "answers":[
+                {"answer":"locations for turbines are limited because the wind can be blocked", "is_correct": "false", "img":""},
+                {"answer":"solar needs a back up system for cloudy days", "is_correct": "false", "img":""},
+                {"answer":"wind energy is less expensive and it is limitless", "is_correct": "true", "img":""}
+            ]
+        },
+        
+        {
+            "question":"An advantage of burning coal for energy is","img":"","img_explanation":"",
+            "answers":[
+                {"answer":"it is an inexpensive source of energy", "is_correct": "true", "img":""},
+                {"answer":"it does not pollute the air", "is_correct": "false", "img":""},
+                {"answer":"it is a renewable energy source", "is_correct": "false", "img":""}
+            ]
+        },{
+            "question":"An advantage of using natural gas as a form of energy is","img":"","img_explanation":"",
+            "answers":[
+                {"answer":"it is more expensive compared to other fossil fuels", "is_correct": "false", "img":""},
+                {"answer":"It produces low emissions(pollution) compared to other fossil fuels", "is_correct": "true", "img":""},
+                {"answer":"there is a more limited supply compared to other fossil fuels", "is_correct": "false", "img":""}
+            ]
+        },{
+            "question":"What do geothermal and solar energy have in common?","img":"","img_explanation":"",
+            "answers":[
+                {"answer":"they both use sunlight to generate energy", "is_correct": "false", "img":""},
+                {"answer":"both are non-renewable energy sources", "is_correct": "false", "img":""},
+                {"answer":"neither produce greenhouse gases", "is_correct": "true", "img":""}
+            ]
+        }
+    ]
 }]
